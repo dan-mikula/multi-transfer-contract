@@ -25,19 +25,19 @@ contract MultiTransfer is Ownable {
         protocol_state = PROTOCOL_STATE.CLOSED;
     }
 
-    function setFeeAddress(address _address) public onlyOwner {
+    function setFeeAddress(address _address) external onlyOwner {
         FEE_ADDRESS = _address;
     }
 
-    function setFeeAmount(uint256 _amount) public onlyOwner {
+    function setFeeAmount(uint256 _amount) external onlyOwner {
         FEE_AMOUNT = _amount;
     }
 
-    function getFeeAmount() public view returns (uint256) {
+    function getFeeAmount() external view returns (uint256) {
         return FEE_AMOUNT;
     }
 
-    function setProtocolState(bool _state) public onlyOwner {
+    function setProtocolState(bool _state) external onlyOwner {
         if (_state == true) {
             protocol_state = PROTOCOL_STATE.OPEN;
         } else if (_state == false) {
@@ -45,7 +45,7 @@ contract MultiTransfer is Ownable {
         }
     }
 
-    function retrieveProtocolState() public view returns (bool) {
+    function retrieveProtocolState() external view returns (bool) {
         if (protocol_state == PROTOCOL_STATE.OPEN) return true;
         if (protocol_state == PROTOCOL_STATE.CLOSED) return false;
     }
@@ -99,7 +99,6 @@ contract MultiTransfer is Ownable {
         );
         require(_addresses.length > 0, "No addresses sent");
         require(_amounts.length > 0, "No amounts sent");
-        require(IERC20(_tokenAddress).balanceOf(address(this)) >= , "Not enough funds on contract");
         uint256 fees = 0;
         uint256 total = 0;
         for (uint256 i = 0; i < _addresses.length; i++) {
