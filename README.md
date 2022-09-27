@@ -13,7 +13,7 @@ mv .env-example .env
 Edit the `.env` file and add your keys.
 
 ## Usage
-```
+
 To deploy the contract, please use `00_deploy.py`
 ```
 brownie run scripts/00_deploy.py --network <insert network>
