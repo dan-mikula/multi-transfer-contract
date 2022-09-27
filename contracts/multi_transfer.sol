@@ -44,9 +44,10 @@ contract MultiTransfer is Ownable {
         }
     }
 
-    function retrieveProtocolState() external view returns (bool) {
-        if (protocol_state == PROTOCOL_STATE.OPEN) return true;
-        if (protocol_state == PROTOCOL_STATE.CLOSED) return false;
+    function retrieveProtocolState() external view returns (bool state) {
+        if (protocol_state == PROTOCOL_STATE.OPEN) state = true;
+        if (protocol_state == PROTOCOL_STATE.CLOSED) state = false;
+        return state;
     }
 
     function calculateFee(uint256 _amount)
