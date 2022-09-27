@@ -8,7 +8,6 @@ import "../interfaces/IERC20.sol";
 contract MultiTransfer is Ownable {
     address public FEE_ADDRESS;
     uint256 public FEE_AMOUNT;
-    address public ACCEPTED_TOKEN;
 
     enum PROTOCOL_STATE {
         OPEN,
