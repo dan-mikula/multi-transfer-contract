@@ -14,7 +14,7 @@ Edit the `.env` file and add your keys.
 
 ## Usage
 ```
-To deploy the main wallet, please use `00_deploy.py`
+To deploy the contract, please use `00_deploy.py`
 ```
 brownie run scripts/00_deploy.py --network <insert network>
 ```
